@@ -6,7 +6,6 @@ import { productRoutes } from './routes/product.routes'
 const app = express()
 
 app.use(express.json())
-
-app.use(clientRoutes, productRoutes, orderRoutes)
+app.use('/api', clientRoutes, productRoutes, orderRoutes)
 
 app.listen(8080, () => { console.log('Server is running on port 8080') })
