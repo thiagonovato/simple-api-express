@@ -4,7 +4,9 @@ import productService from '../services/ProductService'
 const productRoutes = Router()
 
 productRoutes.post('/product', (request: Request, response: Response) => {
-  const { productId, isActive, currentQuantity } = request.body
+  const { isActive, currentQuantity } = request.body
+
+  const productId = productService.nextId()
 
   const product = { productId, isActive, currentQuantity }
   productService.add(product)

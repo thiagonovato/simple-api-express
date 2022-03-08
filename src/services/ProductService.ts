@@ -14,6 +14,10 @@ class ProductService {
   list(): Product[] {
     return products
   }
+
+  nextId(): number {
+    return products.length + 1
+  }
 }
 
 export default new ProductService();

@@ -4,7 +4,9 @@ import clientService from '../services/ClientService'
 const clientRoutes = Router()
 
 clientRoutes.post('/clients', (request: Request, response: Response) => {
-  const { clientId, name } = request.body
+  const { name } = request.body
+
+  const clientId = clientService.nextId()
 
   const client = { clientId, name }
   clientService.add(client)

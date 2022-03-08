@@ -14,6 +14,10 @@ class ClientService {
   list(): Client[] {
     return clients
   }
+
+  nextId(): number {
+    return clients.length + 1
+  }
 }
 
 export default new ClientService();
