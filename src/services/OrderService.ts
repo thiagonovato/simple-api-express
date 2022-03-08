@@ -8,7 +8,7 @@ class OrderService {
 
   async add({ orderId, products, clientId }: Order): Promise<Order> {
     const client = clientService.findById(clientId)
-    // if (!client) throw new Error("client-not-found");
+    if (!client) throw new Error("client-not-found");
 
     if (products.length === 0) throw new Error("products-not-found");
 
