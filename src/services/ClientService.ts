@@ -18,6 +18,10 @@ class ClientService {
   nextId(): number {
     return clients.length + 1
   }
+
+  findById(id: number): Client {
+    return clients.find(client => client.clientId === id)
+  }
 }
 
 export default new ClientService();

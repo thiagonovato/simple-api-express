@@ -18,6 +18,13 @@ class ProductService {
   nextId(): number {
     return products.length + 1
   }
+
+  productAvailable(productId: number, currentQuantity: number): boolean {
+    const product = products.find(product => product.productId === productId)
+    if (!product) throw new Error("product-not-found");
+
+    return product.currentQuantity >= currentQuantity
+  }
 }
 
 export default new ProductService();
